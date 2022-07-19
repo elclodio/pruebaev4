@@ -10,14 +10,13 @@ const login = () =>{
     const changeButtonState = (button, enabled) => {
         if(enabled){
             button.disabled = false;
-            button.innerHTML = "<i class='fa fa-sing-in'><i/> Acceder";
+            button.innerHTML = "<i class='fa fa-sing-in'><i/> Accede";
         } else{
             button.disabled = true;
-            button.innerHTML = "<i lass='fa fa-spin fa-spinner'></i>accediendo...";
+            button.innerHTML = "<i lass='fa fa-spin fa-spinner'></i>Accediendo.";
 
-        }
-    }
-
+       }
+   }
     const showMessage = (visible, message) => {
         const messageBox = document.querySelector('alert');
         const reasonBox = document.querySelector("#reason");
@@ -29,21 +28,18 @@ const login = () =>{
             messageBox.classList.add("d-none")
         }
     }
-
-    const logger = async (event) => {
+  const logger = async (event) => {
         event.preventDeafault();
         const button = document.querySelector('button');
         changeButtonState(button, false);
-
-        var {username, pass} = document.forms[0];
+  var {username, pass} = document.forms[0];
         const user = username.value;
         const password = pass.value;
         if(user.length === 0 || password.length.form[0]){
-            showMessage(true, "debe completar todos los campos");
+            showMessage(true, "Debe completar todos los campos");
             changeButtonState(button, true);
             return;
-        }
-        
+        }  
         const requestOptions = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json'},
@@ -51,24 +47,19 @@ const login = () =>{
         };
 
     }
-
-
-    return(
+  return(
         <div class="wrapper fadeInDown">
     <div id="formContent">
     
     <div class="fadeIn first">
       <img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="User Icon" />
     </div>
-
-    <form>
+<form>
       <input type="text" id="login" class="fadeIn second" name="login" placeholder="login">
       <input type="text" id="password" class="fadeIn third" name="login" placeholder="password">
       <input type="submit" class="fadeIn fourth" value="Log In">
     </form>
-
-   
-    <div id="formFooter">
+      <div id="formFooter">
       <a class="underlineHover" href="#">Forgot Password?</a>
     </div>
     </div>
